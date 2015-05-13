@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Dancing Life - Video</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="rss-articles/" />
+    <script type = "text/javascript">
+        <!--
+		var video = [
+				'LIUisVMzJMk&hl=zh_TW&fs=1&',
+				'HbF1sf36JXo&hl=zh_TW&fs=1&',
+				'W291uunL2u4&hl=zh_TW&fs=1&',
+				'ZvX7ZNWyA1w&hl=zh_TW&fs=1&',
+				't72bWy1V7hs&hl=zh_TW&fs=1&',
+				'RrNHjBq5VsE&hl=zh_TW&fs=1&',
+				'c8WxFX22xPs&hl=zh_TW&fs=1&',
+				'ff4ydT5BYuw&hl=zh_TW&fs=1&',
+				'Zf3o0sbXM84&hl=zh_TW&fs=1&',
+				'HWptNoJPv2o&hl=zh_TW&fs=1&',
+				'_6ny8YjnN_c&hl=zh_TW&fs=1&',
+				'jyTVLEXBGgs&hl=zh_TW&fs=1&',
+				'S-PBLjj5F3A&hl=zh_TW&fs=1&'
+				];
+        function display( imgfile ) {
+			var bigVideo = document.getElementById( "video" );
+            var newNode = document.createElement( "embed" );
+            var i = parseInt( imgfile );
+            newNode.id = "video";
+			newNode.src = "http://www.youtube.com/v/" + video[i];
+			newNode.className = "bigVideo";
+			bigVideo.parentNode.replaceChild( newNode, bigVideo );
+		}
+		function random_display() {
+			var bigVideo = document.getElementById( "mainvideo" );
+			var newNode = document.createElement( "embed" );
+			var i = Math.floor( Math.random() * 13 );
+            newNode.id = "video";
+			newNode.src = "http://www.youtube.com/v/" + video[i];
+			newNode.className = "bigVideo";
+			bigVideo.appendChild( newNode );
+		}
+		// -->
+    </script>
+</head>
+<body onload = "random_display()">
+
+<div id="wrap">
+
+<div id="header">
+    <h1><a href="index.html">Dancing Life</a></h1>
+    <h2>Turn on the music and shake your body</h2>
+</div>
+
+<div id="menu">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="intro.html">Introdution</a></li>
+        <li><a href="video.html">Video</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="aboutme.html">About me</a></li>
+    </ul>
+</div>
+
+<div id = "content" class="left">
+    <h2><a href="">影片集</a></h2>
+    影片集中我收集了一些我個人比較喜愛的影片，都是從YouTube涉獵而來，類別包括了團體表演甚至是個人SOLO，也有幾部台大盃比賽影集精選，歡迎對舞蹈有研究或是剛踏入這領域的朋友們蒞臨參觀，如果有想推薦的影片也可以在<a href="aboutme.html">關於我</a>中的意見留言板推薦，藉此把好的影片分享給更多人哦！
+<table>
+<tbody>
+<tr>
+    <td colspan="5"><div id = "mainvideo" class = "mainvideo"></div></td>
+</tr>
+<tr>
+    <td><img src = "images/video0.jpg" alt = "video0" onclick = "display( '0' )" class = "smallVdo" /></td>
+    <td><img src = "images/video1.jpg" alt = "video1" onclick = "display( '1' )" class = "smallVdo" /></td>
+    <td><img src = "images/video2.jpg" alt = "video2" onclick = "display( '2' )" class = "smallVdo" /></td>
+    <td><img src = "images/video3.jpg" alt = "video3" onclick = "display( '3' )" class = "smallVdo" /></td>
+    <td><img src = "images/video4.jpg" alt = "video4" onclick = "display( '4' )" class = "smallVdo" /></td>
+</tr>
+<tr>
+    <td><img src = "images/video5.jpg" alt = "video5" onclick = "display( '5' )" class = "smallVdo" /></td>
+    <td><img src = "images/video6.jpg" alt = "video6" onclick = "display( '6' )" class = "smallVdo" /></td>
+    <td><img src = "images/video7.jpg" alt = "video7" onclick = "display( '7' )" class = "smallVdo" /></td>
+    <td><img src = "images/video8.jpg" alt = "video8" onclick = "display( '8' )" class = "smallVdo" /></td>
+    <td><img src = "images/video9.jpg" alt = "video9" onclick = "display( '9' )" class = "smallVdo" /></td>
+</tr>
+<tr>
+    <td><img src = "images/video10.jpg" alt = "video10" onclick = "display( '10' )" class = "smallVdo" /></td>
+    <td><img src = "images/video11.jpg" alt = "video11" onclick = "display( '11' )" class = "smallVdo" /></td>
+    <td><img src = "images/video12.jpg" alt = "video12" onclick = "display( '12' )" class = "smallVdo" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="clear:both;"> </div>
+
+</div>
+
+<div id="footer">
+Designed by <a href="mailto:B97570106@ntou.edu.tw">RickyChien</a>
+</div>
+
+</div>
+</body>
+</html>
+
+

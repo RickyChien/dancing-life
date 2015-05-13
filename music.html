@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Dancing Life - Music</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="rss-articles/" />
+    <script type = "text/javascript">
+        <!--
+        var interval = null; // keeps track of the interval
+        var speed = 30 // determines the speed of the animation
+        var count = 0; // size of the image during the animation
+        var offLeft;
+        var offTop;
+        // called repeatedly to animate the book cover
+        function run() {
+            count += speed;
+            // stop the animation when the image is large enough
+            if ( count >= 300 )  {
+                window.clearInterval( interval );
+                interval = null;                 
+            }
+            var bigImage = document.getElementById( "bigCover" );
+            var percentLeft = offLeft / 300;
+            var percentTop = offTop / 300;
+            bigImage.style.width = count + "px";
+            bigImage.style.height = count + "px";
+            bigImage.style.left = offLeft - percentLeft * count + "px";
+            bigImage.style.top = offTop - percentTop * count + "px";
+        } // end function run
+         // inserts the proper image into the main image area and
+         // begins the animation
+        function display( imgfile ) {
+            if ( interval )
+                return;
+            var comments = [
+                'Song: Shine<br />Artist: Brandon Kane<br />Album: (First Single)<br />Style: Pop<br />Rate: ★★★★★<br />',
+                'Song: Nothin\' On You<br />Artist: B.o.B.<br />Album: (First Single)<br />Style: Pop<br />Rate: ★★★★★<br />',
+                'Song: Terrified<br />Artist: Katharine Mcphee<br />Album: Unbroken<br />Style: Pop<br />Rate: ★★★★☆<br />',
+                'Song: I Love You 2<br />Artist: Usher<br />Album: Raymond v. Raymond<br />Style: Pop<br />Rate: ★★★★☆<br />',
+                'Song: Heartbeat<br />Artist: Leona Lewis<br />Album: (First Single)<br />Style: Pop/R&amp;B<br />Rate: ★★★★★<br />',
+                'Song: Waving Flag<br />Artist: R. Kelly<br />Album: Listen Up!<br />Style: VA<br />Rate: ★★★★☆<br />',
+                'Song: 奇跡を望むなら(等待奇蹟)<br />Artist: JUJU<br />Album: 奇跡を望むなら<br />Style: Jpop<br />Rate: ★★★★☆<br />',
+                'Song: For Once In My Life<br />Artist: Craig David<br />Album: Signed Sealed Delivered<br />Style: Pop<br />Rate: ★★★★☆<br />',
+                'Song: You and Me<br />Artist: Olivia Ong<br />Album: Olivia<br />Style: Pop<br />Rate: ★★★★★<br />',
+                'Song: Forever We Will Be<br />Artist: VA<br />Album: My Piano Sings<br />Style: Jazzy Hip Hop<br />Rate: ★★★★★<br />',
+                'Song: I Thank You<br />Artist: Cadence Blaze<br />Album: Love in Magic(OST)<br />Style: Slow Jam<br />Rate: ★★★★☆<br />',
+                'Song: Tainted<br />Artist: Dwele<br />Album: Dwele<br />Style: Soul<br />Rate: ★★★★☆<br />',
+                'Song: Too Much Of Everything<br />Artist: Corneille<br />Album: Parce qu\'on vient de loin<br />Style: R&amp;B<br />Rate: ★★★★☆<br/>'];
+            var musicLink = [
+                '<br /><embed src="http://www.youtube.com/v/2pAbNSgtAqM&hl=zh_TW&fs=1&" width="150" height="25"></embed><br />',
+                '<br /><embed src="http://www.youtube.com/v/um3QvVh3zF0&hl=zh_TW&fs=1&" width="150" height="25"></embed><br />',
+                '<br /><embed src="http://www.youtube.com/v/whWjkJsksJc&hl=zh_TW&fs=1&" width="150" height="25"></embed><br />',
+                '<br /><embed src="http://www.youtube.com/v/wXbdYqOWA5M&hl=zh_TW&fs=1&" width="150" height="25"></embed><br />',
+                '<br /><embed src="http://www.youtube.com/v/QLDDVw9uvI4&hl=zh_TW&fs=1&" width="150" height="25"></embed><br />',
+                '<br /><embed src="http://www.youtube.com/v/ACFylb1MNMM&hl=zh_TW&fs=1&" width="150" height="25"></embed><br />',
+				'<br /><embed src="http://www.youtube.com/v/vvqlDj1bBkM&hl=zh_TW&fs=1&" width="150" height="25"></embed><br />',
+                '<br /><embed src="http://www.youtube.com/v/hkB30K59ICg&hl=zh_TW&fs=1&" width="150" height="25"></embed><br />',
+                '<br /><embed src="http://www.youtube.com/v/az9KfjaVVuU&hl=zh_TW&fs=1&" width="150" height="25"></embed><br />',
+                '<br /><embed src="http://www.youtube.com/v/vGxV66PipxU&hl=zh_TW&fs=1&" width="150" height="25"></embed><br />',
+                '<br /><embed src="http://www.youtube.com/v/p2d00KQcepA&hl=zh_TW&fs=1&" width="150" height="25"></embed><br />',
+                '<br /><embed src="http://www.youtube.com/v/wp_nleAHxrE&hl=zh_TW&fs=1&" width="150" height="25"></embed><br />',
+                '<br /><embed src="http://www.youtube.com/v/4Y9vLeYlbLc&hl=zh_TW&fs=1&" width="150" height="25"></embed><br />'
+                ];
+            
+            var bigImage = document.getElementById( "bigCover" );
+            var newComment = document.getElementById( "comment" );
+            var newNode = document.createElement( "img" );
+            var picIndex = parseInt(imgfile);
+            offLeft = 45 + (picIndex % 5) * 100;
+            offTop = 405 + (picIndex / 5) * 100;
+            newNode.id = "bigCover";
+            newNode.src = "images/music/" + imgfile + ".jpg";
+            newNode.alt = "bigCover";
+            newNode.className = "bigCover";
+            newNode.style.width = "0px";
+            newNode.style.height = "0px";
+            newNode.style.position = "relative";
+            newNode.style.left = "45";
+            newNode.style.top = "405";
+            newComment.id = "comment";
+            newComment.innerHTML = comments[picIndex] + musicLink[picIndex];
+            bigImage.parentNode.replaceChild( newNode, bigImage );
+            count = 0; // start the image at size 0
+	    interval = window.setInterval( "run()", 10 ); // animate
+	} // end function display
+        // -->
+    </script>
+</head>
+<body>
+
+<div id="wrap">
+
+<div id="header">
+    <h1><a href="index.html">Dancing Life</a></h1>
+    <h2>Turn on the music and shake your body</h2>
+</div>
+
+<div id="menu">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="intro.html">Introdution</a></li>
+        <li><a href="video.html">Video</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="aboutme.html">About me</a></li>
+    </ul>
+</div>
+
+<div id = "content" class="left">
+    <h2>好歌推薦</h2>以下都為個人喜好的音樂收藏，推薦給各位聽聽，歌曲全都來自於Youtube連結，如果有喜歡的歌曲請購買正版CD光碟。
+<table>
+    <tbody>
+<tr>
+    <td colspan="3">
+
+    <div id = "mainimg" class = "mainimg">
+        <img id = "bigCover" src = "images/music/0.jpg" alt = "Full cover image" class = "bigCover"/>
+    </div>
+    </td>
+    <td colspan="2">
+        <strong id = "comment">Song: Shine<br />Artist: Brandon Kane<br />Album: (First Single)<br />Style: Pop<br />Rate: ★★★★★<br /><br /><object width="150" height="25"><param name="movie" value="http://www.youtube.com/v/2pAbNSgtAqM&hl=zh_TW&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/2pAbNSgtAqM&hl=zh_TW&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="150" height="25"></embed></object></strong>
+    </td>
+</tr>
+<tr>
+    <td><img src = "images/music/0.jpg" alt = "" onclick = "display( '0' )" class = "smallCover" /></td>
+    <td><img src = "images/music/1.jpg" alt = "" onclick = "display( '1' )" class = "smallCover" /></td>
+    <td><img src = "images/music/2.jpg" alt = "" onclick = "display( '2' )" class = "smallCover" /></td>
+    <td><img src = "images/music/3.jpg" alt = "" onclick = "display( '3' )" class = "smallCover" /></td>
+    <td><img src = "images/music/4.jpg" alt = "" onclick = "display( '4' )" class = "smallCover" /></td>
+</tr>
+<tr>
+    <td><img src = "images/music/5.jpg" alt = "" onclick = "display( '5' )" class = "smallCover" /></td>
+    <td><img src = "images/music/6.jpg" alt = "" onclick = "display( '6' )" class = "smallCover" /></td>
+    <td><img src = "images/music/7.jpg" alt = "" onclick = "display( '7' )" class = "smallCover" /></td>
+    <td><img src = "images/music/8.jpg" alt = "" onclick = "display( '8' )" class = "smallCover" /></td>
+    <td><img src = "images/music/9.jpg" alt = "" onclick = "display( '9' )" class = "smallCover" /></td>
+</tr>
+<tr>
+    <td><img src = "images/music/10.jpg" alt = "" onclick = "display( '10' )" class = "smallCover" /></td>
+    <td><img src = "images/music/11.jpg" alt = "" onclick = "display( '11' )" class = "smallCover" /></td>
+    <td><img src = "images/music/12.jpg" alt = "" onclick = "display( '12' )" class = "smallCover" /></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+<div style="clear:both;"> </div>
+
+<div id="footer">
+Designed by <a href="mailto:B97570106@ntou.edu.tw">RickyChien</a>
+</div>
+
+</div>
+</body>
+</html>
